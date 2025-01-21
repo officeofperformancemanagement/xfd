@@ -1,5 +1,5 @@
 # xfd
-Very Unofficial Reader of Extended File Descriptors
+Very Unofficial Reader of [Extended File Descriptors](https://www.microfocus.com/documentation/extend-acucobol/925/BKUSUSFILES017.html)
 
 ## install
 ```sh
