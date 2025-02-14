@@ -9,8 +9,10 @@ with open(path.join(this_directory, "README.md")) as f:
 setup(
     name="xfd",
     packages=["xfd"],
+    package_dir={"xfd": "xfd"},
+    package_data={"xfd": ["__init__.py"]},
     version="0.0.0",
-    description="Very Unofficial Reader of Extended File Descriptors",
+    description="Unofficial Reader of Extended File Descriptors",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Daniel J. Dufour",
@@ -24,5 +26,5 @@ setup(
         "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
         "Operating System :: OS Independent",
     ],
-    install_requires=[],
+    install_requires=["beautifulsoup4"],
 )
