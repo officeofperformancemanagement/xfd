@@ -1,9 +1,9 @@
 # xfd
-Very Unofficial Reader of [Extended File Descriptors](https://www.microfocus.com/documentation/extend-acucobol/925/BKUSUSFILES017.html)
+Unofficial Reader of [Extended File Descriptors](https://www.microfocus.com/documentation/extend-acucobol/925/BKUSUSFILES017.html)
 
 ## install
 ```sh
-pip install git+https://github.com/officeofperformancemanagement/xfd
+pip install xfd
 ```
 
 ## usage
@@ -70,6 +70,5 @@ xfd.read(text)
 }
 ```
 
-
-# references
+## references
 - https://www.microfocus.com/documentation/extend-acucobol/925/BKUSUSFILEUS5.3.4.html
