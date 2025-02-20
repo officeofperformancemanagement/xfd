@@ -64,17 +64,17 @@ alphabet_lookup = dict([(0, "ASCII")])
 
 
 def identification_xml(
-    select_name,
-    table_name,
-    maximum_record_size,
-    minimum_record_size,
-    number_of_keys,
-    sign_compatability,
-    maximum_numeric_digits,
-    period_character=".",
-    comma_character=",",
-    alphabet="ASCII",
-):
+    select_name: str,
+    table_name: str,
+    maximum_record_size: float,
+    minimum_record_size: float,
+    number_of_keys: float,
+    sign_compatability: float,
+    maximum_numeric_digits: float,
+    period_character: str = ".",
+    comma_character: str = ",",
+    alphabet: str = "ASCII",
+) -> str:
     return f"""<xfd:identification xfd:version="6">
   <xfd:select-name>{select_name}</xfd:select-name>
   <xfd:table-name>{table_name}</xfd:table-name>
@@ -90,7 +90,7 @@ def identification_xml(
 </xfd:identification>"""
 
 
-def parse_identification_section(text):
+def parse_identification_section(text: str) -> dict:
     lines = text.strip().split("\n")
     _, xfd_version, select_name, table_name, file_organization = lines[1].split(",")
 
@@ -133,7 +133,7 @@ def parse_identification_section(text):
     }
 
 
-def parse_fields_text(text):
+def parse_fields_text(text: str) -> dict:
     header, summary, *rest = text.strip().split("\n")
     (
         elementary_items,
@@ -189,11 +189,11 @@ def parse_fields_text(text):
     }
 
 
-def parse_key_section(text):
+def parse_key_section(text: str):
     pass
 
 
-def parse_text(xfd):
+def parse_text(xfd: str) -> dict:
     # split sections
     sections = xfd.split("#")
 
@@ -216,7 +216,7 @@ def parse_text(xfd):
     return {"Identification Section": id_data, "Field Section": field_section_data}
 
 
-def parse_xml(xmltext):
+def parse_xml(xmltext: str) -> dict:
     soup = BeautifulSoup(xmltext, features="lxml")
     xid = soup.find("xfd:identification")
 
@@ -294,7 +294,7 @@ def parse_xml(xmltext):
     return results
 
 
-def parse(rawtext):
+def parse(rawtext: str) -> dict:
     if rawtext.startswith("<?xml"):
         return parse_xml(rawtext)
     else:
